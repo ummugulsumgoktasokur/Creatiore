@@ -14,7 +14,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/11/2014 13:02:25</publishTime>
     </File>
     <File Include="bin/Creatiore.dll">
-      <publishTime>10/11/2014 22:25:22</publishTime>
+      <publishTime>10/12/2014 00:10:00</publishTime>
     </File>
     <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
       <publishTime>10/11/2014 13:02:24</publishTime>
@@ -203,7 +203,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/11/2013 07:07:14</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>10/11/2014 22:14:55</publishTime>
+      <publishTime>10/11/2014 23:36:53</publishTime>
     </File>
     <File Include="Content/Site_.css">
       <publishTime>10/11/2014 21:11:04</publishTime>
@@ -352,14 +352,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/themes/base/images/WhatWeDo/01.gif">
       <publishTime>10/11/2014 13:02:19</publishTime>
     </File>
+    <File Include="Content/themes/base/images/WhatWeDo/01.png">
+      <publishTime>10/11/2014 23:24:10</publishTime>
+    </File>
     <File Include="Content/themes/base/images/WhatWeDo/02.gif">
       <publishTime>10/11/2014 13:02:19</publishTime>
     </File>
+    <File Include="Content/themes/base/images/WhatWeDo/02.png">
+      <publishTime>10/11/2014 23:37:26</publishTime>
+    </File>
     <File Include="Content/themes/base/images/WhatWeDo/03.png">
-      <publishTime>10/11/2014 13:02:19</publishTime>
+      <publishTime>10/11/2014 23:37:27</publishTime>
     </File>
     <File Include="Content/themes/base/images/WhatWeDo/04.gif">
       <publishTime>10/11/2014 13:02:19</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/WhatWeDo/04.png">
+      <publishTime>10/11/2014 23:37:29</publishTime>
     </File>
     <File Include="Content/themes/base/jquery-ui.css">
       <publishTime>10/11/2014 13:02:19</publishTime>
@@ -698,13 +707,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/11/2014 18:53:47</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/11/2014 22:25:13</publishTime>
+      <publishTime>10/12/2014 00:06:40</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>10/11/2014 13:02:20</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/11/2014 22:25:11</publishTime>
+      <publishTime>10/12/2014 00:08:50</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>10/11/2014 13:02:20</publishTime>

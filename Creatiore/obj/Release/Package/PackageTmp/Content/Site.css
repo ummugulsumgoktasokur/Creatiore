@@ -649,10 +649,45 @@ ul.social-network li a:hover span .fa-circle {
     font-size: 30px;
     color: #529abb;
 }
+
 #aboutus {
     min-height: 550px;
 }
-#aboutus table tr td {
-    margin:13px;
-    padding: 13px;
+
+    #aboutus table tr td {
+        margin: 13px;
+        padding: 13px;
+    }
+
+footer p {
+    font-size: 13px;
 }
+
+#whatwedo table {
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+
+    #whatwedo table tr td {
+        vertical-align: top;
+        /*border-width: 2px;
+        border-color: #529abb;
+        border-style: solid;*/
+        width: 220px;
+        font-size: 14px;
+        line-height: 25px;
+        font-weight: normal;
+    }
+
+        #whatwedo table tr td img {
+            margin: 10px;
+            width: 149px;
+            height: 149px;
+        }
+
+        #whatwedo table tr td div {
+            margin: 5px;
+        }
+          #whatwedo table tr td div h4 {
+              text-transform: none;
+        }

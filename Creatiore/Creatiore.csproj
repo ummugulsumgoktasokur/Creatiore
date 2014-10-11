@@ -247,10 +247,10 @@
     <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\images\WhatWeDo\01.gif" />
-    <Content Include="Content\themes\base\images\WhatWeDo\02.gif" />
+    <Content Include="Content\themes\base\images\WhatWeDo\01.png" />
+    <Content Include="Content\themes\base\images\WhatWeDo\02.png" />
     <Content Include="Content\themes\base\images\WhatWeDo\03.png" />
-    <Content Include="Content\themes\base\images\WhatWeDo\04.gif" />
+    <Content Include="Content\themes\base\images\WhatWeDo\04.png" />
     <Content Include="Content\themes\base\jquery-ui.css" />
     <Content Include="Content\themes\base\jquery.ui.accordion.css" />
     <Content Include="Content\themes\base\jquery.ui.all.css" />

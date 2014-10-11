@@ -256,3 +256,4 @@ C:\Users\ugulsum\Documents\GitHub\Creatiore\Creatiore\bin\zh-Hans\System.Spatial
 C:\Users\ugulsum\Documents\GitHub\Creatiore\Creatiore\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\ugulsum\Documents\GitHub\Creatiore\Creatiore\obj\Debug\Creatiore.dll
 C:\Users\ugulsum\Documents\GitHub\Creatiore\Creatiore\obj\Debug\Creatiore.pdb
+C:\Users\ugulsum\Documents\GitHub\Creatiore\Creatiore\obj\Debug\Creatiore.csprojResolveAssemblyReference.cache

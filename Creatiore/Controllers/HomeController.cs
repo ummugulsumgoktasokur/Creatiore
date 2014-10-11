@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Net;
+using System.Net.Mail;
+using System.Text;
 using System.Web.Mvc;
 
 namespace Creatiore.Controllers
@@ -10,10 +9,38 @@ namespace Creatiore.Controllers
     {
         public ActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(FormCollection formCollection)
+        {
+            var mailBody = new StringBuilder();
+            mailBody.AppendFormat("Name : {0} </br>", formCollection["inputName"]);
+            mailBody.AppendFormat("Email : {0} </br>", formCollection["inputName"]);
+            mailBody.AppendFormat("Message : {0} </br>", formCollection["message"]);
+            var mailMessage = new MailMessage();
+            mailMessage.Body = mailBody.ToString();
+            mailMessage.Subject = formCollection["inputSubject"];
+            mailMessage.From = new MailAddress("info@creatiore.com");
+            mailMessage.To.Add(new MailAddress("info@creatiore.com"));
+            mailMessage.IsBodyHtml = true;
+            var smtp = new SmtpClient()
+            {
+                Host = "mail.creatiore.com",
+                Port = 587,
+                Credentials = new NetworkCredential(mailMessage.From.Address, "gy333123"),
+                EnableSsl = false,
+                DeliveryMethod = SmtpDeliveryMethod.Network
+            };
+            smtp.Send(mailMessage);
+
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             return View();
         }
+
+        
 
         public ActionResult About()
         {

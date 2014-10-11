@@ -161,49 +161,45 @@
 <!-- Download Section -->
 <section id="whatwedo" class="container content-section text-center">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-lg-10 col-lg-offset-1">
             <h2>WHAT WE DO</h2>
             <table>
                 <tr>
                     <td>
-                        <img src="~/Content/themes/base/images/WhatWeDo/01.gif" />
+                        <img src="~/Content/themes/base/images/WhatWeDo/01.png" />
+                        <div>
+                            <h4>Mobile Apps</h4>
+                            As you know, Thousands of mobile applications are producing and publishing
+                            everyday. Don’t be too late to publish your own applications with
+                            expert team of the Creatiore..
+                        </div>
                     </td>
                     <td>
-                        <img src="~/Content/themes/base/images/WhatWeDo/02.gif" />
+                        <img src="~/Content/themes/base/images/WhatWeDo/02.png" />
+                        <div>
+                            <h4>Software</h4>
+                            Creatiore will provide everything that you need with experienced software team. It’s
+                            enough to say your wish to our software team who has already completed a lot of
+                            projects before.
+                        </div>
                     </td>
                     <td>
                         <img src="~/Content/themes/base/images/WhatWeDo/03.png" />
+                        <div>
+                            <h4>SEO</h4>
+                            Creatiore provide the highest quality service to its customers every day by expanding
+                            the team to experiment on the search engines algorithms in both theoretical and
+                            practical sense.
+                        </div>
                     </td>
                     <td>
-                        <img src="~/Content/themes/base/images/WhatWeDo/04.gif" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        As you know, Thousands of mobile applications are producing and publishing
-                        everyday. Don’t be too late to publish your own applications for your companies and
-                        projects. Over two billion people on earth using smart phones, and everyday millions
-                        of people downloading new applications. You can also be in this world through the
-                        expert team of the Creatiore..
-                    </td>
-                    <td>
-                        Creatiore will provide everything that you need with experienced software team. It’s
-                        enough to say your wish to our software team who has already completed a lot of
-                        projects before.
-
-                    </td>
-
-                    <td>
-                        Creatiore provide the highest quality service to its customers every day by expanding
-                        the team to experiment on the search engines algorithms in both theoretical and
-                        practical sense.
-                    </td>
-                    <td>
-                        A delirious designer team.
-                        Yes, that’s how we describe us! We Love Freedom! We
-                        challenge your expectations thru our limitless thoughts, extraordinary ideas, colourful
-                        imaginations, artistics designs and originalities..That’s why we do the best! Plus,
-                        these all are just a mail away from you!
+                        <img src="~/Content/themes/base/images/WhatWeDo/04.png" />
+                        <div>
+                            <h4>Design</h4>
+                            A delirious designer team.
+                            Yes, that’s how we describe us! We Love Freedom!.That’s why we do the best! Plus,
+                            these all are just a mail away from you!
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -298,30 +294,30 @@
     </div>
     <div class="row">
         <div class="col-md-offset-1 col-md-10">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" method="POST" action="/">
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-8">
-                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                        <input type="text" class="form-control required" id="inputName" name="inputName" placeholder="Name">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-8">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="email" class="form-control required" id="inputEmail" name="inputEmail" placeholder="Email">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-8">
-                        <input type="text" class="form-control" id="inputSubject" placeholder="Subject">
+                        <input type="text" class="form-control required" id="inputSubject" name="inputSubject" placeholder="Subject">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-8">
-                        <textarea name="message" class="form-control" rows="3" placeholder="Message"></textarea>
+                        <textarea name="message" class="form-control required" rows="3" placeholder="Message"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-8">
-                        <button type="button" class="btn btn-theme btn-lg btn-block">Send message</button>
+                        <button type="submit" class="btn btn-theme btn-lg btn-block">Send message</button>
                     </div>
                 </div>
             </form>
@@ -367,64 +363,4 @@
         </div>
     </div>
 </section>
-
-
-@*<section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <div class="contact-form">
-                    <table>
-                        <tr>
-                            <td>
-                                <table>
-                                    <tr>
-                                        <td>Name:</td>
-                                        <td>
-                                            <input type="text" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email:</td>
-                                        <td>
-                                            <input type="text" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Subject:</td>
-                                        <td>
-                                            <input type="text" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Message:</td>
-                                        <td>
-                                            <textarea rows="5"></textarea>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td style="text-align: right">
-                                            <img src="~/Content/themes/base/images/send.png" />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td style="vertical-align: top;">
-                                <div>
-                                    <img src="~/Content/themes/base/images/map.png" />
-                                    <hr />
-                                    Yeni Mah. 544 Sok. No : 3 D: 10
-                                    <br />
-                                    Küçükköy / Gaziosmanpaşa Istanbul
-                                    <br />
-                                    Mail : info@@creatiore.com
-                                </div>
-
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>*@
 
