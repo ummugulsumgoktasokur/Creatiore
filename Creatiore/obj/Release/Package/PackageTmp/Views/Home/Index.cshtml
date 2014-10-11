@@ -2,257 +2,429 @@
     ViewBag.Title = "Creatiore Web Design Mobile Apps Software Developments";
 }
 
-<div class="white-container" id="home">
-    <div class="slider-container" id="slider">
-        <a href="#" target="_blank">
-            <img src="~/Content/themes/base/images/slider-01.png" />
-        </a>
+<!-- Intro Header -->
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                @*<div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Grayscale</h1>
+                        <p class="intro-text">A free, responsive, one page Bootstrap theme.<br>Created by Start Bootstrap.</p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>*@
+                <script src="http://d3js.org/d3.v3.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        var width = $(".intro-body .container").width(),
+                            height = $(".intro").height();
 
-        <a href="#" target="_blank">
-            <img src="~/Content/themes/base/images/slider-02.png" />
-        </a>
+                        var nodes = d3.range(200).map(function () { return { radius: Math.random() * 12 + 4 }; }),
+                            root = nodes[0],
+                            color = d3.scale.category10();
 
-        <a href="#" target="_blank">
-            <img src="~/Content/themes/base/images/slider-03.png" />
-        </a>
-    </div>
-</div>
-<div class="black-container projects-container" id="projects">
-    <div class="projects">
-        <div class="project-title">PROJECTS</div>
-        <div class="view img-hover-effect">
-            <img src="~/Content/themes/base/images/Projects/hikmetshouse.png" />
-            <div class="mask">
-                <h2>Hikmet's House</h2>
-                <p>
-                    Hikmet's House Web Site
-                    <br />
-                    Design & Logo Design & Software
-                </p>
-                <a href="http://www.hikmetshouse.com/" target="_blank" class="info">Visit Website</a>
+                        root.radius = 0;
+                        root.fixed = true;
+
+                        var force = d3.layout.force()
+                            .gravity(0.05)
+                            .charge(function (d, i) { return i ? 0 : -2000; })
+                            .nodes(nodes)
+                            .size([width, height]);
+
+                        force.start();
+
+                        var svg = d3.select(".intro-body").append("svg")
+                            .attr("width", width)
+                            .attr("height", height);
+
+                        svg.selectAll("circle")
+                            .data(nodes.slice(1))
+                            .enter().append("circle")
+                            .attr("r", function (d) { return d.radius; })
+                            .style("fill", function (d, i) { return color(i % 3); });
+
+                        force.on("tick", function (e) {
+                            var q = d3.geom.quadtree(nodes),
+                                i = 0,
+                                n = nodes.length;
+
+                            while (++i < n) q.visit(collide(nodes[i]));
+
+                            svg.selectAll("circle")
+                                .attr("cx", function (d) { return d.x; })
+                                .attr("cy", function (d) { return d.y; });
+                        });
+
+                        svg.on("mousemove", function () {
+                            var p1 = d3.mouse(this);
+                            root.px = p1[0];
+                            root.py = p1[1];
+                            force.resume();
+                        });
+
+                        function collide(node) {
+                            var r = node.radius + 16,
+                                nx1 = node.x - r,
+                                nx2 = node.x + r,
+                                ny1 = node.y - r,
+                                ny2 = node.y + r;
+                            return function (quad, x1, y1, x2, y2) {
+                                if (quad.point && (quad.point !== node)) {
+                                    var x = node.x - quad.point.x,
+                                        y = node.y - quad.point.y,
+                                        l = Math.sqrt(x * x + y * y),
+                                        r = node.radius + quad.point.radius;
+                                    if (l < r) {
+                                        l = (l - r) / l * .5;
+                                        node.x -= x *= l;
+                                        node.y -= y *= l;
+                                        quad.point.x += x;
+                                        quad.point.y += y;
+                                    }
+                                }
+                                return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+                            };
+                        }
+                    });
+                </script>
             </div>
         </div>
-        <div class="view img-hover-effect">
-            <img src="~/Content/themes/base/images/Projects/alfursan.png" />
-            <div class="mask">
-                <h2>Alfursan</h2>
-                <p>
-                    Alfursan File Management
-                    <br />
-                    Design & Software & Mobile Development
-                </p>
-                <a href="http://panel.alfursan.com.tr/" target="_blank" class="info">Visit Website</a>
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="projects" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>PROJECTS</h2>
+            <div style="float: left;width: 508px;">
+                <div class="view img-hover-effect">
+                    <img src="~/Content/themes/base/images/Projects/hikmetshouse.png" />
+                    <div class="mask">
+                        <h2>Hikmet's House</h2>
+                        <p>
+                            Hikmet's House Web Site
+                            <br />
+                            Design & Logo Design & Software
+                        </p>
+                        <a href="http://www.hikmetshouse.com/" target="_blank" class="info">Visit Website</a>
+                    </div>
+                </div>
+                <div class="view img-hover-effect">
+                    <img src="~/Content/themes/base/images/Projects/alfursan.png" />
+                    <div class="mask">
+                        <h2>Alfursan</h2>
+                        <p>
+                            Alfursan File Management
+                            <br />
+                            Design & Software & Mobile Development
+                        </p>
+                        <a href="http://panel.alfursan.com.tr/" target="_blank" class="info">Visit Website</a>
+                    </div>
+                </div>
+                <div class="view img-hover-effect coming-soon-hor">
+                    <img src="~/Content/themes/base/images/Projects/kungfu.png" />
+                    <div class="mask">
+                        <h2>Coming Soon</h2>
+                        <p>
+                            TVA Kungfu Website
+                            <br />
+                            Design & Logo Design & Software
+                        </p>
+                        <a href="#" target="_blank" class="info">Visit Website</a>
+                    </div>
+                </div>
+                <div class="">
+
+                </div>
             </div>
+            <div class="view img-hover-effect coming-soon-ver">
+                <img src="~/Content/themes/base/images/Projects/evren.png" />
+                <div class="mask">
+                    <h2>Coming Soon</h2>
+                    <p>
+                        Hair Designer Evren Ilhan's Website
+                        <br />
+                        Design & Logo Design & Software
+                    </p>
+                    <a href="#" target="_blank" class="info">Visit Website</a>
+                </div>
+            </div>
+
+
         </div>
     </div>
-</div>
-<div class="white-container" id="whatwedo">
-    <div class="what-we-do">
-        @*<section id="set-8">
-            <div class="hi-icon-wrap hi-icon-effect-8">
-                <a href="#set-8" class="hi-icon hi-icon-bookmark"></a>
-                <a href="#set-8" class="hi-icon hi-icon-chat">Chat</a>
-                <a href="#set-8" class="hi-icon hi-icon-bookmark">Bookmarks</a>
-                <a href="#set-8" class="hi-icon hi-icon-user">User</a>
-                <a href="#set-8" class="hi-icon hi-icon-contract">Contact</a>
-            </div>
-        </section>*@
-        <table>
-            <tr>
-                <td>
-                    <img src="~/Content/themes/base/images/WhatWeDo/01.gif" />
-                </td>
-                <td>
-                    <img src="~/Content/themes/base/images/WhatWeDo/02.gif" />
-                </td>
-                <td>
-                    <img src="~/Content/themes/base/images/WhatWeDo/03.png" />
-                </td>
-                <td>
-                    <img src="~/Content/themes/base/images/WhatWeDo/04.gif" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    As you know, Thousands of mobile applications are producing and publishing
-                    everyday. Don’t be too late to publish your own applications for your companies and
-                    projects. Over two billion people on earth using smart phones, and everyday millions
-                    of people downloading new applications. You can also be in this world through the
-                    expert team of the Creatiore..
-                </td>
-                <td>
-                    Creatiore will provide everything that you need with experienced software team. It’s
-                    enough to say your wish to our software team who has already completed a lot of
-                    projects before.
+</section>
 
-                </td>
-
-                <td>
-                    Creatiore provide the highest quality service to its customers every day by expanding
-                    the team to experiment on the search engines algorithms in both theoretical and
-                    practical sense.
-                </td>
-                <td>
-                    A delirious designer team.
-                    Yes, that’s how we describe us! We Love Freedom! We
-                    challenge your expectations thru our limitless thoughts, extraordinary ideas, colourful
-                    imaginations, artistics designs and originalities..That’s why we do the best! Plus,
-                    these all are just a mail away from you!
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
-<div class="black-container" id="aboutus">
-    <div class="sitewidth about-us-container">
-        <table>
-
-            <thead>
+<!-- Download Section -->
+<section id="whatwedo" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>WHAT WE DO</h2>
+            <table>
                 <tr>
-                    <td colspan="4">ABOUT US</td>
+                    <td>
+                        <img src="~/Content/themes/base/images/WhatWeDo/01.gif" />
+                    </td>
+                    <td>
+                        <img src="~/Content/themes/base/images/WhatWeDo/02.gif" />
+                    </td>
+                    <td>
+                        <img src="~/Content/themes/base/images/WhatWeDo/03.png" />
+                    </td>
+                    <td>
+                        <img src="~/Content/themes/base/images/WhatWeDo/04.gif" />
+                    </td>
                 </tr>
-            </thead>
+                <tr>
+                    <td>
+                        As you know, Thousands of mobile applications are producing and publishing
+                        everyday. Don’t be too late to publish your own applications for your companies and
+                        projects. Over two billion people on earth using smart phones, and everyday millions
+                        of people downloading new applications. You can also be in this world through the
+                        expert team of the Creatiore..
+                    </td>
+                    <td>
+                        Creatiore will provide everything that you need with experienced software team. It’s
+                        enough to say your wish to our software team who has already completed a lot of
+                        projects before.
 
-            <tr>
-                <td>
-                    <img src="~/Content/themes/base/images/aboutUs/1.gif" />
-                </td>
-                <td>
-                    WE LOVE PROBLEMS<br />
-                    Because puzzles are fun.
-                </td>
-                <td>
-                    <img src="~/Content/themes/base/images/aboutUs/5.gif" />
-                </td>
-                <td>
-                    WE ALWAYS IMPROVE<br />
-                    Because we always learn new techs.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="~/Content/themes/base/images/aboutUs/2.gif" />
-                </td>
-                <td>
-                    WE LOVE DETAILS<br />
-                    Because small things are important.
-                </td>
-                <td>
-                    <img src="~/Content/themes/base/images/aboutUs/6.gif" />
-                </td>
-                <td>
-                    WE LOVE STATISTICS<br />
-                    Because numbers never lie.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="~/Content/themes/base/images/aboutUs/3.gif" />
-                </td>
-                <td>
-                    WE ARE CREATIVE<br />
-                    Because we have great imagination.
-                </td>
-                <td>
-                    <img src="~/Content/themes/base/images/aboutUs/7.gif" />
-                </td>
-                <td>
-                    WE LOVE GLOBALITY<br />
-                    Because we would like to serve to the whole world.
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <img src="~/Content/themes/base/images/aboutUs/4.gif" />
-                </td>
-                <td>
-                    WE ARE ORGANIZED<br />
-                    Because we stick to the plan.
-                </td>
-                <td>
-                    <img src="~/Content/themes/base/images/aboutUs/8.png" />
-                </td>
-                <td>
-                    WE ARE FAST<br />
-                    Because time is money.
-                </td>
-            </tr>
-        </table>
+                    </td>
+
+                    <td>
+                        Creatiore provide the highest quality service to its customers every day by expanding
+                        the team to experiment on the search engines algorithms in both theoretical and
+                        practical sense.
+                    </td>
+                    <td>
+                        A delirious designer team.
+                        Yes, that’s how we describe us! We Love Freedom! We
+                        challenge your expectations thru our limitless thoughts, extraordinary ideas, colourful
+                        imaginations, artistics designs and originalities..That’s why we do the best! Plus,
+                        these all are just a mail away from you!
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-</div>
-<div class="white-container" id="contact">
-    <div class="contact-form">
-        <table>
-            <tr>
-                <td>
+</section>
+
+<!-- About Us Section -->
+<section id="aboutus" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>ABOUT US</h2>
+            <table>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-heart-empty"></span>
+                    </td>
+                    <td>
+                        WE LOVE PROBLEMS<br />
+                        Because puzzles are fun.
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-thumbs-up"></span>
+                    </td>
+                    <td>
+                        WE ALWAYS IMPROVE<br />
+                        Because we always learn new techs.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-search"></span>
+                    </td>
+                    <td>
+                        WE LOVE DETAILS<br />
+                        Because small things are important.
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-stats"></span>
+                    </td>
+                    <td>
+                        WE LOVE STATISTICS<br />
+                        Because numbers never lie.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-random"></span>
+                    </td>
+                    <td>
+                        WE ARE CREATIVE<br />
+                        Because we have great imagination.
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-plane"></span>
+                    </td>
+                    <td>
+                        WE LOVE GLOBALITY<br />
+                        Because we would like to serve to the whole world.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </td>
+                    <td>
+                        WE ARE ORGANIZED<br />
+                        Because we stick to the plan.
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-time"></span>
+                    </td>
+                    <td>
+                        WE ARE FAST<br />
+                        Because time is money.
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="container content-section bg-white">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="section-heading">
+                <h2>Contact us</h2>
+                <p>Contact via form below and we will be get in touch with you within 24 hours. </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <input type="text" class="form-control" id="inputSubject" placeholder="Subject">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <textarea name="message" class="form-control" rows="3" placeholder="Message"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <button type="button" class="btn btn-theme btn-lg btn-block">Send message</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row mar-top30 ">
+        <div class="col-md-offset-2 col-md-8">
+            <h5>We're on social networks</h5>
+            <ul class="social-network">
+                <li>
+                    <a href="https://www.facebook.com/creatiore" target="_blank">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://plus.google.com/u/0/b/116967571394483100900/116967571394483100900/about?pageId=116967571394483100900" target="_blank">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/creatiore">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/channel/UCOIYhIDP1L3e0wgc5vedPgg" target="_blank">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+@*<section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="contact-form">
                     <table>
                         <tr>
-                            <td>Name:</td>
                             <td>
-                                <input type="text" />
+                                <table>
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td>
+                                            <input type="text" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email:</td>
+                                        <td>
+                                            <input type="text" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Subject:</td>
+                                        <td>
+                                            <input type="text" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Message:</td>
+                                        <td>
+                                            <textarea rows="5"></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td style="text-align: right">
+                                            <img src="~/Content/themes/base/images/send.png" />
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>Email:</td>
-                            <td>
-                                <input type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Subject:</td>
-                            <td>
-                                <input type="text" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Message:</td>
-                            <td>
-                                <textarea rows="5"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td style="text-align: right">
-                                <img src="~/Content/themes/base/images/send.png" />
+                            <td style="vertical-align: top;">
+                                <div>
+                                    <img src="~/Content/themes/base/images/map.png" />
+                                    <hr />
+                                    Yeni Mah. 544 Sok. No : 3 D: 10
+                                    <br />
+                                    Küçükköy / Gaziosmanpaşa Istanbul
+                                    <br />
+                                    Mail : info@@creatiore.com
+                                </div>
+
                             </td>
                         </tr>
                     </table>
-                </td>
-                <td style="vertical-align: top;">
-                    <div>
-                        <img src="~/Content/themes/base/images/map.png" />
-                        <hr />
-                        Yeni Mah. 544 Sok. No : 3 D: 10
-                        <br />
-                        Küçükköy / Gaziosmanpaşa Istanbul
-                        <br />
-                        Mail : info@@creatiore.com
-                    </div>
-                    <div class="social">
-                        <a href="https://www.facebook.com/creatiore" target="_blank">
-                            <img src="~/Content/themes/base/images/Social/Facebook-icon.png"
-                                 onmouseover="this.src='/Content/themes/base/images/Social/Hover-Facebook-icon.png';"
-                                 onmouseout="this.src='/Content/themes/base/images/Social/Facebook-icon.png';" />
-                        </a>
-                        <a href="https://plus.google.com/u/0/b/116967571394483100900/116967571394483100900/about?pageId=116967571394483100900" target="_blank">
-                            <img src="~/Content/themes/base/images/Social/Google-plus-icon.png"
-                                 onmouseover="this.src='/Content/themes/base/images/Social/Hover-Google-plus-icon.png';"
-                                 onmouseout="this.src='/Content/themes/base/images/Social/Google-plus-icon.png';" />
-                        </a>
-                        <a href="https://twitter.com/creatiore" target="_blank">
-                            <img src="~/Content/themes/base/images/Social/Twitter-icon.png"
-                                 onmouseover="this.src='/Content/themes/base/images/Social/Hover-Twitter-icon.png';"
-                                 onmouseout="this.src='/Content/themes/base/images/Social/Twitter-icon.png';" />
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCOIYhIDP1L3e0wgc5vedPgg" target="_blank">
-                            <img src="~/Content/themes/base/images/Social/YouTube-icon.png"
-                                 onmouseover="this.src='/Content/themes/base/images/Social/Hover-YouTube-icon.png';"
-                                 onmouseout="this.src='/Content/themes/base/images/Social/YouTube-icon.png';" />
-                        </a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
-@Scripts.Render("~/bundles/index")
+                </div>
+            </div>
+        </div>
+    </section>*@
+

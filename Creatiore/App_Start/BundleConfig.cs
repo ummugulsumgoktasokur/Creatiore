@@ -25,14 +25,18 @@ namespace Creatiore
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/index").Include(
-                        "~/Scripts/coin-slider.js"
+                        "~/Scripts/bootstrap.min.js"
                         , "~/Scripts/jquery.easing.1.3.js"
-                        , "~/Scripts/component.js"
-                        , "~/Scripts/modernizr.custom.js"));
+                        , "~/Scripts/Creatiore.js"
+                //, "~/Scripts/component.js"
+                //, "~/Scripts/modernizr.custom.js"
+                        ));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css",
-                 "~/Content/themes/base/coin-slider-styles.css"
-                 , "~/Content/component.css"
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css"
+                , "~/Content/Site.css"
+                , "~/Content/font-awesome.min.css"
+                //, "~/Content/themes/base/coin-slider-styles.css"
+                //, "~/Content/component.css"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
@@ -48,8 +52,16 @@ namespace Creatiore
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"
-                       
+
                         ));
+            BundleTable.EnableOptimizations = true;
+#if DEBUG
+            BundleTable.EnableOptimizations = false;
+            foreach (var bundle in BundleTable.Bundles)
+            {
+                bundle.Transforms.Clear();
+            }
+#endif
         }
     }
 }
