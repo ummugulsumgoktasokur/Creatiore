@@ -25,7 +25,7 @@ namespace Creatiore
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/index").Include(
-                        "~/Scripts/bootstrap.min.js"
+                        "~/Scripts/bootstrap.js"
                         , "~/Scripts/jquery.easing.1.3.js"
                         , "~/Scripts/Creatiore.js"
                 //, "~/Scripts/component.js"

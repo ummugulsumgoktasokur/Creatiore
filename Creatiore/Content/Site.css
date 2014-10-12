@@ -691,3 +691,6 @@ footer p {
           #whatwedo table tr td div h4 {
               text-transform: none;
         }
+.modal-body {
+    color: #000;
+}

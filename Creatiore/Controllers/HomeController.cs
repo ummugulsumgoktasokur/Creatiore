@@ -35,23 +35,7 @@ namespace Creatiore.Controllers
             };
             smtp.Send(mailMessage);
 
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
-        }
-
-        
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Thank you for contacting us. We will return you quickly.";
 
             return View();
         }
